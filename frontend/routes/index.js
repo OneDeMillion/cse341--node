@@ -1,8 +1,8 @@
-const express = require("express");
-const router = express.Router();
-const { index } = require("../controllers/index");
+const routes = require("express").Router();
 
-router.get("/professional", index);
+const { user } = require("../controllers/index");
+
+routes.get("/professional", user);
 
 module.exports = router;
 // export the router

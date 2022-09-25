@@ -7,10 +7,9 @@ const connectDB = require("./initializers/db");
 
 app.use(routes);
 
-
 connectDB().then(() => {
-    app.listen(3000, () => {
-        console.log("app listening on http://localhost:3000");
+    app.listen(8080, () => {
+        console.log("app listening on http://localhost:8080");
     });    
 });
 

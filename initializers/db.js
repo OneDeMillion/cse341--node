@@ -2,24 +2,26 @@
 const {MongoClient} = require('mongodb');
 const db = require('../config/db');
 
-const dbConfig = require("../config/db");
+// const dbConfig = require("../config/db");
 
+let _db;
 
 async function connectDB() {
-    if (db) return db;
+    if (_db) {
+        console.log('DB already installed');
+        return _db
+    }
     try {
-        const client = new MongoClient(dbConfig.connectionString);
+        const client = new MongoClient(db.connectionString);
 
         await client.connect();
         console.log('Connection to DB was Successful');
     
         await listDatabases(client);
-        db = client.db(dbConfig.name);   
-        return db; 
+        _db = client.db(db.name);   
+        return _db; 
     } catch (e){
         console.error("Error with connecting to DB", e);
-    } finally {
-        await client.close();
     }
 };
 
@@ -31,4 +33,6 @@ async function listDatabases(client) {
 };
 
 
-module.exports = connectDB;
+
+
+module.exports = {connectDB, listDatabases};

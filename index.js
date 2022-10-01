@@ -2,7 +2,7 @@ const express = require("express"); // pulls in express library
 const bodyParser = require('body-parser'); // 
 const app = express(); // use to configure our server
 const mongodb = require('./initializers/db'); // 
-
+require('dotenv').config();
 const routes = require("./routes/index");
 const port = process.env.PORT || 8080;
 
@@ -17,7 +17,7 @@ app
 
 mongodb.initDb((err, mongodb) => {
     if (err) {
-        console.log(err);
+        console.log('ERROR: ', err);
     } else {
         app.listen(port);
         console.log(`Connected to DB. Listening on http://localhost:${port}`);

@@ -1,5 +1,5 @@
 const express = require("express"); // pulls in express library
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); // 
 const app = express(); // use to configure our server
 const mongodb = require('./initializers/db'); // 
 

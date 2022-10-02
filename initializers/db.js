@@ -1,5 +1,5 @@
 require('dotenv').config();
-const db = require('../config/db'); 
+//const db = require('../config/db'); 
 const MongoClient = require('mongodb').MongoClient;
 
 // const dbConfig = require("../config/db");
@@ -31,15 +31,17 @@ const MongoClient = require('mongodb').MongoClient;
 //     databasesList.databases.forEach(db => console.log(` - ${db.name}`));
 // };
 
-// const getDb = () => {
-//     if (!_db) {
-//       throw Error('Db not initialized');
-//     }
-//     return _db;
-//   };
-
-
 let _db;
+
+
+const getDb = () => {
+    if (!_db) {
+      throw Error('Db not initialized');
+    }
+    return _db;
+  };
+
+
 
 const initDb = (callback) => {
   if (_db) {
@@ -56,12 +58,12 @@ const initDb = (callback) => {
     });
 };
 
-const getDb = () => {
-  if (!_db) {
-    throw Error('Db not initialized');
-  }
-  return _db;
-};
+// const getDb = () => {
+//   if (!_db) {
+//     throw Error('Db not initialized');
+//   }
+//   return _db;
+// };
 
 
 

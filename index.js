@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 const express = require("express"); // pulls in express library
 const bodyParser = require('body-parser'); // 

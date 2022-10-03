@@ -3,7 +3,7 @@ const mongodb = require('../initializers/db');
 const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res, next) => {
-
+    
     const result = await mongodb
         .getDb()
         .db('CSE341')

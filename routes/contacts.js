@@ -7,5 +7,14 @@ const contactsController = require('../controllers/contacts');
 router.get('/', contactsController.getAll)
 // gets contact identified by id endpoint
 router.get('/:id', contactsController.getOne);
+// creates a new contact
+router.post('/', contactsController.createOne);
+
+// updates a contact identified by id
+router.put('/:id', contactsController.updateOne);
+
+// deletes a contact identified by id
+router.delete('/:id', contactsController.deleteOne);
+
 
 module.exports = router;

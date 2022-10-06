@@ -4,8 +4,8 @@ const express = require("express"); // pulls in express library
 const bodyParser = require('body-parser'); // 
 const app = express(); // use to configure our server
 const mongodb = require('./initializers/db'); // 
-// const routes = require("./routes");
 const port = process.env.PORT || 8080;
+
 
 
 

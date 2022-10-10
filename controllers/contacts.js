@@ -68,31 +68,26 @@ const createOne = async (req, res) => {
     
 const updateOne = async (req, res) => {
     // #swagger.description = 'Updates one contact identified by id endpoint'
-    try {
-        const userId = new ObjectId(req.params.id);
-        const contact = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            favoriteColor: req.body.favoriteColor,
-            birthday: req.body.birthday
-        }; 
-        const response = await mongodb
-        .getDb()
-        .db('CSE341')
-        .collection('contacts')
-        .replaceOne({_id: userId}, contact);
-        // console.log(response);
-        if (response.modifiedCount > 0) {
-            console.log(res.status);
-            res.status(204).send();
-        } else {
-            res.status(500).json(response.error);
-        } 
-    } catch (err) {
-        res.status(500).json({message: err.message});
-    }
-    
+    const userId = new ObjectId(req.params.id);
+    const contact = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        favoriteColor: req.body.favoriteColor,
+        birthday: req.body.birthday
+    }; 
+    const response = await mongodb
+    .getDb()
+    .db('CSE341')
+    .collection('contacts')
+    .replaceOne({_id: userId}, contact);
+    // console.log(response);
+    if (response.modifiedCount > 0) {
+        console.log(res.status);
+        res.status(204).send();
+    } else {
+        res.status(500).json(response.error);
+    } 
 };
     
 const deleteOne = async (req, res) => {

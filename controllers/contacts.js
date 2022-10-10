@@ -1,11 +1,9 @@
-// const { restart } = require('nodemon');
-const { MongoDBNamespace } = require('mongodb');
 const mongodb = require('../initializers/db');
 const ObjectId = require('mongodb').ObjectId;
 
 
-const getAll = async (req, res, next) => {
-    
+const getAll = async (req, res) => {
+    // #swagger.description = 'Gets all contacts in collection'
     const result = await mongodb
         .getDb()
         .db('CSE341')
@@ -17,7 +15,8 @@ const getAll = async (req, res, next) => {
     });
 };
 
-const getOne = async (req, res, next) => {
+const getOne = async (req, res) => {
+    // #swagger.description = 'Gets one contact identified by id endpoint'
     const userId = new ObjectId(req.params.id);
     const result = await mongodb
         .getDb()
@@ -30,8 +29,8 @@ const getOne = async (req, res, next) => {
     });
 };
 
-const createOne = async (req, res, next) => {
-
+const createOne = async (req, res) => {
+    // #swagger.description = 'Create one contact'
     const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -48,11 +47,12 @@ const createOne = async (req, res, next) => {
         res.status(201).json({response, status: 201});
     } else {
         res.status(500).json(response.error);
-    };
+    }
 
 }
     
-const updateOne = async (req, res, next) => {
+const updateOne = async (req, res) => {
+    // #swagger.description = 'Updates one contact identified by id endpoint'
     const userId = new ObjectId(req.params.id);
     const contact = {
         firstName: req.body.firstName,
@@ -75,7 +75,8 @@ const updateOne = async (req, res, next) => {
     }
 }
     
-const deleteOne = async (req, res, next) => {
+const deleteOne = async (req, res) => {
+    // #swagger.description = 'Deletes one contact identified by id endpoint'
     const userId = new ObjectId(req.params.id);
     const response = await mongodb
     .getDb()

@@ -4,5 +4,5 @@ const { user } = require("../controllers/index");
 
 routes.get("/professional", user);
 
-module.exports = router;
+module.exports = routes;
 // export the router

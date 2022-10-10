@@ -1,5 +1,5 @@
 
-const index = (req, res) => {
+const user = (req, res) => {
     res.set({"Access-Control-Allow-Origin": "*"})
     res.json({ 
     "professionalName": "Axiomatic",
@@ -24,4 +24,4 @@ const index = (req, res) => {
     "contactText": "Contact us at Kim@contact.com"
     })
 }
-module.exports = { index };
+module.exports = { user };

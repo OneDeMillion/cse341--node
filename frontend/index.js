@@ -1,13 +1,13 @@
 const express = require("express");
 const app = express()
+const port = process.env.PORT || 8080
 // create app by calling express package
 // app describes what app looks like and how functions
-const routes = require("./routes/index");
 
-app.use(routes);
+app.use('/', require('./routes'));
 
-app.listen(8080, () => {
-    console.log("app listening on http://localhost:8080")
+app.listen(port, () => {
+    console.log(`app listening on ${port}`);
 });
 
-// app listens on port 3000 -- add function as second parameter for easy access to browser
+//app listens on port 3000 -- add function as second parameter for easy access to browser

@@ -6,7 +6,7 @@ const doc = {
     description: 'API for creating, updating, and deleting contact information',
   },
   host: 'localhost:8080',
-  schemes: ['http'],
+  schemes: ['http', 'https'],
 };
 
 const outputFile = 'swagger-output.json';

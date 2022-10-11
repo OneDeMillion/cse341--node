@@ -7,7 +7,7 @@ const getAll = async (req, res) => {
     try {
         const result = await mongodb
         .getDb()
-        .db('cse341')
+        .db('CSE341')
         .collection('contacts')
         .find();
     result.toArray().then((lists) => {
@@ -26,7 +26,7 @@ const getOne = async (req, res) => {
         const userId = new ObjectId(req.params.id);
         const result = await mongodb
             .getDb()
-            .db('cse341')
+            .db('CSE341')
             .collection('contacts')
             .find({_id: userId});  
         result.toArray().then((lists) => {
@@ -51,7 +51,7 @@ const createOne = async (req, res) => {
             };
             const response = await mongodb
                 .getDb()
-                .db('cse341')
+                .db('CSE341')
                 .collection('contacts')
                 .insertOne(contact);   
             if (response.acknowledged) {
@@ -79,7 +79,7 @@ const updateOne = async (req, res) => {
         }; 
         const response = await mongodb
         .getDb()
-        .db('cse341')
+        .db('CSE341')
         .collection('contacts')
         .replaceOne({_id: userId}, contact);
         // console.log(response);
@@ -101,7 +101,7 @@ const deleteOne = async (req, res) => {
         const userId = new ObjectId(req.params.id);
         const response = await mongodb
         .getDb()
-        .db('cse341')
+        .db('CSE341')
         .collection('contacts')
         .deleteOne({_id: userId}, true);
         console.log(response);

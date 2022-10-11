@@ -5,7 +5,7 @@ const doc = {
     title: 'Contacts API',
     description: 'API for creating, updating, and deleting contact information',
   },
-  host: 'localhost:8080',
+  host: '',
   schemes: ['http', 'https'],
 };
 

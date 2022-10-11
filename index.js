@@ -9,13 +9,7 @@ const port = process.env.PORT || 8080;
 app
     .use(bodyParser.json()) // use allows us to use middleware1
     .use((req, res, next) => {
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader(
-            'Access-Control-Allow-Headers',
-            'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
-        );
-        res.setHeader('Content-Type', 'application/json');
-        res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
+        // res.setHeader('Access-Control-Allow-Origin', '*');
         next();
     })
     .use('/', require('./routes'));

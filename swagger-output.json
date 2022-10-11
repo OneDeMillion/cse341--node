@@ -5,7 +5,6 @@
     "description": "API for creating, updating, and deleting contact information",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
   "host": "",
   "basePath": "/",
   "schemes": [
